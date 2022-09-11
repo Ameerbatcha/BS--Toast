@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Modals</title>
+</head>
+
+<body>
+    <div class="p-2">
+        <h1 class="h1" id="mytoastelement">Toast</h1>
+
+        <!-- toast  -->
+        <div class="toast show">
+            <div class="toast-header">
+                <h5 class="toast-title me-auto">Toast Heading</h5>
+                <button type="button" class="btn btn-close" data-bs-dismiss="toast"></button>
+            </div>
+
+            <div class="toast-body">sometext inside toast body</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        document.getElementById("mytoastelement").onclick = function () {
+            var toastTrigerList = [].slice.call(document.querySelectorAll(`.toast`));
+            var toastList = toastTrigerList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl);
+            })
+
+            toastList.forEach(toast => { toast.show() });
+        }
+
+    </script>
+
+</body>
+
+</html>
